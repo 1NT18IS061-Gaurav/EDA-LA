@@ -1,0 +1,826 @@
+> #package installing
+> install.packages("tidyverse")
+
+https://cran.rstudio.com/bin/windows/Rtools/
+Installing package into ‘C:/Users/gaurav/Documents/R/win-library/4.1’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.1/tidyverse_1.3.1.zip'
+Content type 'application/zip' length 430143 bytes (420 KB)
+downloaded 420 KB
+
+package ‘tidyverse’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\gaurav\AppData\Local\Temp\RtmpQHTlju\downloaded_packages
+> library(tidyverse)
+-- Attaching packages -------------------------------------------------------------------------------- tidyverse 1.3.1 --
+v ggplot2 3.3.5     v purrr   0.3.4
+v tibble  3.1.2     v dplyr   1.0.7
+v tidyr   1.1.3     v stringr 1.4.0
+v readr   1.4.0     v forcats 0.5.1
+-- Conflicts ----------------------------------------------------------------------------------- tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+> install.packages("caret")
+
+
+https://cran.rstudio.com/bin/windows/Rtools/
+Installing package into ‘C:/Users/vandita/Documents/R/win-library/4.1’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.1/caret_6.0-88.zip'
+Content type 'application/zip' length 6295081 bytes (6.0 MB)
+downloaded 6.0 MB
+
+package ‘caret’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\gaurav\AppData\Local\Temp\RtmpQHTlju\downloaded_packages
+> library(caret)
+Loading required package: lattice
+
+Attaching package: ‘caret’
+
+The following object is masked from ‘package:purrr’:
+
+    lift
+
+> install.packages("RCurl")
+WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version of Rtools before proceeding:
+
+https://cran.rstudio.com/bin/windows/Rtools/
+Installing package into ‘C:/Users/gaurav/Documents/R/win-library/4.1’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.1/RCurl_1.98-1.3.zip'
+Content type 'application/zip' length 3072176 bytes (2.9 MB)
+downloaded 2.9 MB
+
+package ‘RCurl’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\gaurav\AppData\Local\Temp\RtmpQHTlju\downloaded_packages
+> library(RCurl)
+
+Attaching package: ‘RCurl’
+
+The following object is masked from ‘package:tidyr’:
+
+    complete
+
+> install.packages("skimr")
+
+https://cran.rstudio.com/bin/windows/Rtools/
+Installing package into ‘C:/Users/gaurav/Documents/R/win-library/4.1’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.1/skimr_2.1.3.zip'
+Content type 'application/zip' length 1238251 bytes (1.2 MB)
+downloaded 1.2 MB
+
+package ‘skimr’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\gaurav\AppData\Local\Temp\RtmpQHTlju\downloaded_packages
+> library(skimr)
+> #importing .csv into global enviroment
+> data <- read.csv("SN.csv")
+> #view data
+> head(data)
+  Age EstimatedSalary Purchased
+1  19           19000         0
+2  35           20000         0
+3  26           43000         0
+4  27           57000         0
+5  19           76000         0
+6  27           58000         0
+> tail(data)
+    Age EstimatedSalary Purchased
+395  39           59000         0
+396  46           41000         1
+397  51           23000         1
+398  50           20000         1
+399  36           33000         0
+400  49           36000         1
+> View(data)
+> str(data)
+'data.frame':	400 obs. of  3 variables:
+ $ Age            : int  19 35 26 27 19 27 27 32 25 35 ...
+ $ EstimatedSalary: int  19000 20000 43000 57000 76000 58000 84000 150000 33000 65000 ...
+ $ Purchased      : int  0 0 0 0 0 0 0 1 0 0 ...
+> #extracting copmponents of dataframe
+> data[1,2]
+[1] 19000
+> data[,2]
+  [1]  19000  20000  43000  57000  76000  58000  84000 150000  33000  65000  80000  52000  86000  18000  82000  80000
+ [17]  25000  26000  28000  29000  22000  49000  41000  22000  23000  20000  28000  30000  43000  18000  74000 137000
+ [33]  16000  44000  90000  27000  28000  49000  72000  31000  17000  51000 108000  15000  84000  20000  79000  54000
+ [49] 135000  89000  32000  44000  83000  23000  58000  55000  48000  79000  18000 117000  20000  87000  66000 120000
+ [65]  83000  58000  19000  82000  63000  68000  80000  27000  23000 113000  18000 112000  52000  27000  87000  17000
+ [81]  80000  42000  49000  88000  62000 118000  55000  85000  81000  50000  81000 116000  15000  28000  83000  44000
+ [97]  25000 123000  73000  37000  88000  59000  86000 149000  21000  72000  35000  89000  86000  80000  71000  71000
+[113]  61000  55000  80000  57000  75000  52000  59000  59000  75000  72000  75000  53000  51000  61000  65000  32000
+[129]  17000  84000  58000  31000  87000  68000  55000  63000  82000 107000  59000  25000  85000  68000  59000  89000
+[145]  25000  89000  96000  30000  61000  74000  15000  45000  76000  50000  47000  15000  59000  75000  30000 135000
+[161] 100000  90000  33000  38000  69000  86000  55000  71000 148000  47000  88000 115000 118000  43000  72000  28000
+[177]  47000  22000  23000  34000  16000  71000 117000  43000  60000  66000  82000  41000  72000  32000  84000  26000
+[193]  43000  70000  89000  43000  79000  36000  80000  22000  39000  74000 134000  71000 101000  47000 130000 114000
+[209] 142000  22000  96000 150000  42000  58000  43000 108000  65000  78000  96000 143000  80000  91000 144000 102000
+[225]  60000  53000 126000 133000  72000  80000 147000  42000 107000  86000 112000  79000  57000  80000  82000 143000
+[241] 149000  59000  88000 104000  72000 146000  50000 122000  52000  97000  39000  52000 134000 146000  44000  90000
+[257]  72000  57000  95000 131000  77000 144000 125000  72000  90000 108000  75000  74000 144000  61000 133000  76000
+[273]  42000 106000  26000  74000  71000  88000  38000  36000  88000  61000  70000  21000 141000  93000  62000 138000
+[289]  79000  78000 134000  89000  39000  77000  57000  63000  73000 112000  79000 117000  38000  74000 137000  79000
+[305]  60000  54000 134000 113000 125000  50000  70000  96000  50000 141000  79000  75000 104000  55000  32000  60000
+[321] 138000  82000  52000  30000 131000  60000  72000  75000 118000 107000  51000 119000  65000  65000  60000  54000
+[337] 144000  79000  55000 122000 104000  75000  65000  51000 105000  63000  72000 108000  77000  61000 113000  75000
+[353]  90000  57000  99000  34000  70000  72000  71000  54000 129000  34000  50000  79000 104000  29000  47000  88000
+[369]  71000  26000  46000  83000  73000 130000  80000  32000  74000  53000  87000  23000  64000  33000 139000  28000
+[385]  33000  60000  39000  71000  34000  35000  33000  23000  45000  42000  59000  41000  23000  20000  33000  36000
+> data$Age
+  [1] 19 35 26 27 19 27 27 32 25 35 26 26 20 32 18 29 47 45 46 48 45 47 48 45 46 47 49 47 29 31 31 27 21 28 27 35 33 30
+ [39] 26 27 27 33 35 30 28 23 25 27 30 31 24 18 29 35 27 24 23 28 22 32 27 25 23 32 59 24 24 23 22 31 25 24 20 33 32 34
+ [77] 18 22 28 26 30 39 20 35 30 31 24 28 26 35 22 30 26 29 29 35 35 28 35 28 27 28 32 33 19 21 26 27 26 38 39 37 38 37
+[115] 42 40 35 36 40 41 36 37 40 35 41 39 42 26 30 26 31 33 30 21 28 23 20 30 28 19 19 18 35 30 34 24 27 41 29 20 26 41
+[153] 31 36 40 31 46 29 26 32 32 25 37 35 33 18 22 35 29 29 21 34 26 34 34 23 35 25 24 31 26 31 32 33 33 31 20 33 35 28
+[191] 24 19 29 19 28 34 30 20 26 35 35 49 39 41 58 47 55 52 40 46 48 52 59 35 47 60 49 40 46 59 41 35 37 60 35 37 36 56
+[229] 40 42 35 39 40 49 38 46 40 37 46 53 42 38 50 56 41 51 35 57 41 35 44 37 48 37 50 52 41 40 58 45 35 36 55 35 48 42
+[267] 40 37 47 40 43 59 60 39 57 57 38 49 52 50 59 35 37 52 48 37 37 48 41 37 39 49 55 37 35 36 42 43 45 46 58 48 37 37
+[305] 40 42 51 47 36 38 42 39 38 49 39 39 54 35 45 36 52 53 41 48 48 41 41 42 36 47 38 48 42 40 57 36 58 35 38 39 53 35
+[343] 38 47 47 41 53 54 39 38 38 37 42 37 36 60 54 41 40 42 43 53 47 42 42 59 58 46 38 54 60 60 39 59 37 46 46 42 41 58
+[381] 42 48 44 49 57 56 49 39 47 48 48 47 45 60 39 46 51 50 36 49
+>data %>%
+  select(Age, EstimatedSalary)
+Age EstimatedSalary
+1    19           19000
+2    35           20000
+3    26           43000
+4    27           57000
+5    19           76000
+6    27           58000
+7    27           84000
+8    32          150000
+9    25           33000
+10   35           65000
+11   26           80000
+12   26           52000
+13   20           86000
+14   32           18000
+15   18           82000
+16   29           80000
+17   47           25000
+18   45           26000
+19   46           28000
+20   48           29000
+21   45           22000
+22   47           49000
+23   48           41000
+24   45           22000
+25   46           23000
+26   47           20000
+27   49           28000
+28   47           30000
+29   29           43000
+30   31           18000
+31   31           74000
+32   27          137000
+33   21           16000
+34   28           44000
+35   27           90000
+36   35           27000
+37   33           28000
+38   30           49000
+39   26           72000
+40   27           31000
+41   27           17000
+42   33           51000
+43   35          108000
+44   30           15000
+45   28           84000
+46   23           20000
+47   25           79000
+48   27           54000
+49   30          135000
+50   31           89000
+51   24           32000
+52   18           44000
+53   29           83000
+54   35           23000
+55   27           58000
+56   24           55000
+57   23           48000
+58   28           79000
+59   22           18000
+60   32          117000
+61   27           20000
+62   25           87000
+63   23           66000
+64   32          120000
+65   59           83000
+66   24           58000
+67   24           19000
+68   23           82000
+69   22           63000
+70   31           68000
+71   25           80000
+72   24           27000
+73   20           23000
+74   33          113000
+75   32           18000
+76   34          112000
+77   18           52000
+78   22           27000
+79   28           87000
+80   26           17000
+81   30           80000
+82   39           42000
+83   20           49000
+84   35           88000
+85   30           62000
+86   31          118000
+87   24           55000
+88   28           85000
+89   26           81000
+90   35           50000
+91   22           81000
+92   30          116000
+93   26           15000
+94   29           28000
+95   29           83000
+96   35           44000
+97   35           25000
+98   28          123000
+99   35           73000
+100  28           37000
+101  27           88000
+102  28           59000
+103  32           86000
+104  33          149000
+105  19           21000
+106  21           72000
+107  26           35000
+108  27           89000
+109  26           86000
+110  38           80000
+111  39           71000
+112  37           71000
+113  38           61000
+114  37           55000
+115  42           80000
+116  40           57000
+117  35           75000
+118  36           52000
+119  40           59000
+120  41           59000
+121  36           75000
+122  37           72000
+123  40           75000
+124  35           53000
+125  41           51000
+126  39           61000
+127  42           65000
+128  26           32000
+129  30           17000
+130  26           84000
+131  31           58000
+132  33           31000
+133  30           87000
+134  21           68000
+135  28           55000
+136  23           63000
+137  20           82000
+138  30          107000
+139  28           59000
+140  19           25000
+141  19           85000
+142  18           68000
+143  35           59000
+144  30           89000
+145  34           25000
+146  24           89000
+147  27           96000
+148  41           30000
+149  29           61000
+150  20           74000
+151  26           15000
+152  41           45000
+153  31           76000
+154  36           50000
+155  40           47000
+156  31           15000
+157  46           59000
+158  29           75000
+159  26           30000
+160  32          135000
+161  32          100000
+162  25           90000
+163  37           33000
+164  35           38000
+165  33           69000
+166  18           86000
+167  22           55000
+168  35           71000
+169  29          148000
+170  29           47000
+171  21           88000
+172  34          115000
+173  26          118000
+174  34           43000
+175  34           72000
+176  23           28000
+177  35           47000
+178  25           22000
+179  24           23000
+180  31           34000
+181  26           16000
+182  31           71000
+183  32          117000
+184  33           43000
+185  33           60000
+186  31           66000
+187  20           82000
+188  33           41000
+189  35           72000
+190  28           32000
+191  24           84000
+192  19           26000
+193  29           43000
+194  19           70000
+195  28           89000
+196  34           43000
+197  30           79000
+198  20           36000
+199  26           80000
+200  35           22000
+201  35           39000
+202  49           74000
+203  39          134000
+204  41           71000
+205  58          101000
+206  47           47000
+207  55          130000
+208  52          114000
+209  40          142000
+210  46           22000
+211  48           96000
+212  52          150000
+213  59           42000
+214  35           58000
+215  47           43000
+216  60          108000
+217  49           65000
+218  40           78000
+219  46           96000
+220  59          143000
+221  41           80000
+222  35           91000
+223  37          144000
+224  60          102000
+225  35           60000
+226  37           53000
+227  36          126000
+228  56          133000
+229  40           72000
+230  42           80000
+231  35          147000
+232  39           42000
+233  40          107000
+234  49           86000
+235  38          112000
+236  46           79000
+237  40           57000
+238  37           80000
+239  46           82000
+240  53          143000
+241  42          149000
+242  38           59000
+243  50           88000
+244  56          104000
+245  41           72000
+246  51          146000
+247  35           50000
+248  57          122000
+249  41           52000
+250  35           97000
+251  44           39000
+252  37           52000
+253  48          134000
+254  37          146000
+255  50           44000
+256  52           90000
+257  41           72000
+258  40           57000
+259  58           95000
+260  45          131000
+261  35           77000
+262  36          144000
+263  55          125000
+264  35           72000
+265  48           90000
+266  42          108000
+267  40           75000
+268  37           74000
+269  47          144000
+270  40           61000
+271  43          133000
+272  59           76000
+273  60           42000
+274  39          106000
+275  57           26000
+276  57           74000
+277  38           71000
+278  49           88000
+279  52           38000
+280  50           36000
+281  59           88000
+282  35           61000
+283  37           70000
+284  52           21000
+285  48          141000
+286  37           93000
+287  37           62000
+288  48          138000
+289  41           79000
+290  37           78000
+291  39          134000
+292  49           89000
+293  55           39000
+294  37           77000
+295  35           57000
+296  36           63000
+297  42           73000
+298  43          112000
+299  45           79000
+300  46          117000
+301  58           38000
+302  48           74000
+303  37          137000
+304  37           79000
+305  40           60000
+306  42           54000
+307  51          134000
+308  47          113000
+309  36          125000
+310  38           50000
+311  42           70000
+312  39           96000
+313  38           50000
+314  49          141000
+315  39           79000
+316  39           75000
+317  54          104000
+318  35           55000
+319  45           32000
+320  36           60000
+321  52          138000
+322  53           82000
+323  41           52000
+324  48           30000
+325  48          131000
+326  41           60000
+327  41           72000
+328  42           75000
+329  36          118000
+330  47          107000
+331  38           51000
+332  48          119000
+333  42           65000
+334  40           65000
+335  57           60000
+336  36           54000
+337  58          144000
+338  35           79000
+339  38           55000
+340  39          122000
+341  53          104000
+342  35           75000
+343  38           65000
+344  47           51000
+345  47          105000
+346  41           63000
+347  53           72000
+348  54          108000
+349  39           77000
+350  38           61000
+351  38          113000
+352  37           75000
+353  42           90000
+354  37           57000
+355  36           99000
+356  60           34000
+357  54           70000
+358  41           72000
+359  40           71000
+360  42           54000
+361  43          129000
+362  53           34000
+363  47           50000
+364  42           79000
+365  42          104000
+366  59           29000
+367  58           47000
+368  46           88000
+369  38           71000
+370  54           26000
+371  60           46000
+372  60           83000
+373  39           73000
+374  59          130000
+375  37           80000
+376  46           32000
+377  46           74000
+378  42           53000
+379  41           87000
+380  58           23000
+381  42           64000
+382  48           33000
+383  44          139000
+384  49           28000
+385  57           33000
+386  56           60000
+387  49           39000
+388  39           71000
+389  47           34000
+390  48           35000
+391  48           33000
+392  47           23000
+393  45           45000
+394  60           42000
+395  39           59000
+396  46           41000
+397  51           23000
+398  50           20000
+399  36           33000
+400  49           36000
+
+
+> #dimenstion of dataset
+> dim(data)
+[1] 400   3
+> #list the datatype of each attribute
+> sapply(data,class)
+            Age EstimatedSalary       Purchased 
+      "integer"       "integer"       "integer" 
+> #check wheather there is null value
+> sum(is.na(data))
+[1] 0
+> #sumarize
+> summary(data)
+      Age        EstimatedSalary    Purchased     
+ Min.   :18.00   Min.   : 15000   Min.   :0.0000  
+ 1st Qu.:29.75   1st Qu.: 43000   1st Qu.:0.0000  
+ Median :37.00   Median : 70000   Median :0.0000  
+ Mean   :37.66   Mean   : 69743   Mean   :0.3575  
+ 3rd Qu.:46.00   3rd Qu.: 88000   3rd Qu.:1.0000  
+ Max.   :60.00   Max.   :150000   Max.   :1.0000  
+> #displaying detailed summary statistics
+> skim(data)
+-- Data Summary ------------------------
+                           Values
+Name                       data  
+Number of rows             400   
+Number of columns          3     
+_______________________          
+Column type frequency:           
+  numeric                  3     
+________________________         
+Group variables            None  
+
+-- Variable type: numeric -----------------------------------------------------------------------------------------------
+# A tibble: 3 x 11
+  skim_variable   n_missing complete_rate      mean        sd    p0     p25   p50   p75   p100 hist 
+* <chr>               <int>         <dbl>     <dbl>     <dbl> <dbl>   <dbl> <dbl> <dbl>  <dbl> <chr>
+1 Age                     0             1    37.7      10.5      18    29.8    37    46     60 ▃▅▇▃▂
+2 EstimatedSalary         0             1 69742.    34097.    15000 43000   70000 88000 150000 ▆▆▇▂▂
+3 Purchased               0             1     0.358     0.480     0     0       0     1      1 ▇▁▁▁▅
+> #group data by index
+> data %>%
++   dplyr::group_by(Age)%>%
++   skim()
+-- Data Summary ------------------------
+                           Values    
+Name                       Piped data
+Number of rows             400       
+Number of columns          3         
+_______________________              
+Column type frequency:               
+  numeric                  2         
+________________________             
+Group variables            Age       
+
+-- Variable type: numeric -----------------------------------------------------------------------------------------------
+# A tibble: 86 x 12
+   skim_variable     Age n_missing complete_rate        mean        sd     p0       p25      p50       p75   p100 hist 
+ * <chr>           <int>     <int>         <dbl>       <dbl>     <dbl>  <dbl>     <dbl>    <dbl>     <dbl>  <dbl> <chr>
+ 1 EstimatedSalary    18         0             1  66400      18298.     44000  52000     68000    82000     86000 ▇▁▃▁▇
+ 2 EstimatedSalary    19         0             1  46000      29417.     19000  23000     26000    73000     85000 ▇▁▁▂▃
+ 3 EstimatedSalary    20         0             1  61714.     25447.     23000  42500     74000    82000     86000 ▂▂▂▁▇
+ 4 EstimatedSalary    21         0             1  61000      31220.     16000  55000     70000    76000     88000 ▃▁▁▇▃
+ 5 EstimatedSalary    22         0             1  48800      25985.     18000  27000     55000    63000     81000 ▇▁▃▃▃
+ 6 EstimatedSalary    23         0             1  51167.     23786.     20000  33000     55500    65250     82000 ▇▁▃▇▃
+ 7 EstimatedSalary    24         0             1  49111.     25804.     19000  27000     55000    58000     89000 ▇▁▆▁▃
+ 8 EstimatedSalary    25         0             1  65167.     29674.     22000  44500     79500    85250     90000 ▃▁▁▁▇
+ 9 EstimatedSalary    26         0             1  53500      32478.     15000  26750     47500    80250    118000 ▇▂▁▆▁
+10 EstimatedSalary    27         0             1  67615.     34053.     17000  54000     58000    89000    137000 ▆▇▆▃▂
+11 EstimatedSalary    28         0             1  69417.     26342.     32000  52250     69000    85500    123000 ▇▇▇▅▂
+12 EstimatedSalary    29         0             1  69100      33946.     28000  44000     68000    82250    148000 ▇▃▆▁▂
+13 EstimatedSalary    30         0             1  76000      38058.     15000  55500     80000    98000    135000 ▅▅▇▅▅
+14 EstimatedSalary    31         0             1  62455.     30464.     15000  46000     68000    75000    118000 ▃▁▇▁▁
+15 EstimatedSalary    32         0             1  95667.     47668.     18000  86000    117000   120000    150000 ▃▁▂▇▃
+16 EstimatedSalary    33         0             1  65000      40592.     28000  41000     51000    69000    149000 ▇▃▁▂▂
+17 EstimatedSalary    34         0             1  68333.     38103.     25000  43000     57500   102000    115000 ▇▁▂▁▅
+18 EstimatedSalary    35         0             1  61812.     27209.     20000  46250     59500    75000    147000 ▆▇▇▂▁
+19 EstimatedSalary    36         0             1  83250      37171.     33000  53500     69000   119750    144000 ▇▆▂▂▆
+20 EstimatedSalary    37         0             1  79400      30247.     33000  60750     74500    80000    146000 ▃▇▃▁▂
+21 EstimatedSalary    38         0             1  69154.     21213.     50000  55000     61000    71000    113000 ▇▃▁▁▂
+22 EstimatedSalary    39         0             1  82800      29697.     42000  66000     75000   101000    134000 ▃▇▂▁▃
+23 EstimatedSalary    40         0             1  72200      23848.     47000  58000     65000    75000    142000 ▇▅▁▁▁
+24 EstimatedSalary    41         0             1  63562.     14895.     30000  52000     67000    72000     87000 ▂▆▅▇▅
+25 EstimatedSalary    42         0             1  78938.     24718.     53000  64750     74000    82500    149000 ▇▇▂▁▁
+26 EstimatedSalary    43         0             1 124667.     11150.    112000 120500    129000   131000    133000 ▃▁▁▁▇
+27 EstimatedSalary    44         0             1  89000      70711.     39000  64000     89000   114000    139000 ▇▁▁▁▇
+28 EstimatedSalary    45         0             1  51000      40596.     22000  24000     32000    62000    131000 ▇▂▂▁▂
+29 EstimatedSalary    46         0             1  61750      32074.     22000  31000     66500    83500    117000 ▇▂▃▅▂
+30 EstimatedSalary    47         0             1  60071.     39835.     20000  31000     48000    91500    144000 ▇▅▁▃▁
+31 EstimatedSalary    48         0             1  80286.     46059.     29000  33500     82000   128000    141000 ▇▁▃▁▇
+32 EstimatedSalary    49         0             1  67400      35902.     28000  36750     69500    87500    141000 ▇▂▇▁▂
+33 EstimatedSalary    50         0             1  47000      29098.     20000  32000     40000    55000     88000 ▃▇▁▁▃
+34 EstimatedSalary    51         0             1 101000      67816.     23000  78500    134000   140000    146000 ▃▁▁▁▇
+35 EstimatedSalary    52         0             1  91833.     52773.     21000  51000    102000   132000    150000 ▇▁▃▃▇
+36 EstimatedSalary    53         0             1  87000      40262.     34000  72000     82000   104000    143000 ▇▇▇▇▇
+37 EstimatedSalary    54         0             1  77000      38035.     26000  59000     87000   105000    108000 ▃▁▃▁▇
+38 EstimatedSalary    55         0             1  98000      51157.     39000  82000    125000   127500    130000 ▃▁▁▁▇
+39 EstimatedSalary    56         0             1  99000      36756.     60000  82000    104000   118500    133000 ▇▁▁▇▇
+40 EstimatedSalary    57         0             1  63000      38341.     26000  33000     60000    74000    122000 ▇▃▃▁▃
+41 EstimatedSalary    58         0             1  74667.     46246.     23000  40250     71000    99500    144000 ▇▁▂▂▂
+42 EstimatedSalary    59         0             1  84429.     41765.     29000  59000     83000   109000    143000 ▅▁▇▁▅
+43 EstimatedSalary    60         0             1  65286.     31415.     34000  42000     46000    92500    108000 ▇▁▁▂▃
+44 Purchased          18         0             1      0          0          0      0         0        0         0 ▁▁▇▁▁
+45 Purchased          19         0             1      0          0          0      0         0        0         0 ▁▁▇▁▁
+46 Purchased          20         0             1      0          0          0      0         0        0         0 ▁▁▇▁▁
+47 Purchased          21         0             1      0          0          0      0         0        0         0 ▁▁▇▁▁
+48 Purchased          22         0             1      0          0          0      0         0        0         0 ▁▁▇▁▁
+49 Purchased          23         0             1      0          0          0      0         0        0         0 ▁▁▇▁▁
+50 Purchased          24         0             1      0          0          0      0         0        0         0 ▁▁▇▁▁
+51 Purchased          25         0             1      0          0          0      0         0        0         0 ▁▁▇▁▁
+52 Purchased          26         0             1      0          0          0      0         0        0         0 ▁▁▇▁▁
+53 Purchased          27         0             1      0.154      0.376      0      0         0        0         1 ▇▁▁▁▂
+54 Purchased          28         0             1      0.0833     0.289      0      0         0        0         1 ▇▁▁▁▁
+55 Purchased          29         0             1      0.1        0.316      0      0         0        0         1 ▇▁▁▁▁
+56 Purchased          30         0             1      0.182      0.405      0      0         0        0         1 ▇▁▁▁▂
+57 Purchased          31         0             1      0.0909     0.302      0      0         0        0         1 ▇▁▁▁▁
+58 Purchased          32         0             1      0.556      0.527      0      0         1        1         1 ▆▁▁▁▇
+59 Purchased          33         0             1      0.111      0.333      0      0         0        0         1 ▇▁▁▁▁
+60 Purchased          34         0             1      0.167      0.408      0      0         0        0         1 ▇▁▁▁▂
+61 Purchased          35         0             1      0.0938     0.296      0      0         0        0         1 ▇▁▁▁▁
+62 Purchased          36         0             1      0.417      0.515      0      0         0        1         1 ▇▁▁▁▆
+63 Purchased          37         0             1      0.35       0.489      0      0         0        1         1 ▇▁▁▁▅
+64 Purchased          38         0             1      0.0769     0.277      0      0         0        0         1 ▇▁▁▁▁
+65 Purchased          39         0             1      0.4        0.507      0      0         0        1         1 ▇▁▁▁▅
+66 Purchased          40         0             1      0.2        0.414      0      0         0        0         1 ▇▁▁▁▂
+67 Purchased          41         0             1      0.0625     0.25       0      0         0        0         1 ▇▁▁▁▁
+68 Purchased          42         0             1      0.375      0.5        0      0         0        1         1 ▇▁▁▁▅
+69 Purchased          43         0             1      0.667      0.577      0      0.5       1        1         1 ▃▁▁▁▇
+70 Purchased          44         0             1      0.5        0.707      0      0.25      0.5      0.75      1 ▇▁▁▁▇
+71 Purchased          45         0             1      0.857      0.378      0      1         1        1         1 ▁▁▁▁▇
+72 Purchased          46         0             1      0.583      0.515      0      0         1        1         1 ▆▁▁▁▇
+73 Purchased          47         0             1      0.857      0.363      0      1         1        1         1 ▁▁▁▁▇
+74 Purchased          48         0             1      0.929      0.267      0      1         1        1         1 ▁▁▁▁▇
+75 Purchased          49         0             1      0.8        0.422      0      1         1        1         1 ▂▁▁▁▇
+76 Purchased          50         0             1      0.75       0.5        0      0.75      1        1         1 ▂▁▁▁▇
+77 Purchased          51         0             1      0.667      0.577      0      0.5       1        1         1 ▃▁▁▁▇
+78 Purchased          52         0             1      0.833      0.408      0      1         1        1         1 ▂▁▁▁▇
+79 Purchased          53         0             1      1          0          1      1         1        1         1 ▁▁▇▁▁
+80 Purchased          54         0             1      1          0          1      1         1        1         1 ▁▁▇▁▁
+81 Purchased          55         0             1      1          0          1      1         1        1         1 ▁▁▇▁▁
+82 Purchased          56         0             1      1          0          1      1         1        1         1 ▁▁▇▁▁
+83 Purchased          57         0             1      1          0          1      1         1        1         1 ▁▁▇▁▁
+84 Purchased          58         0             1      1          0          1      1         1        1         1 ▁▁▇▁▁
+85 Purchased          59         0             1      0.714      0.488      0      0.5       1        1         1 ▃▁▁▁▇
+86 Purchased          60         0             1      1          0          1      1         1        1         1 ▁▁▇▁▁
+> #create validation set
+> validation <- createDataPartition(data$Age,p=0.50,list=FALSE)
+> validation50 <-data[-validation,]
+> data<-data[validation,]
+> view(data)
+> #input and output
+> x<-data[,2:3]
+> view(x)
+> y<-data[,2]
+> view(y)
+> #plots
+> boxplot(x[,2],main=names(data)[1],ylab="Age")
+> boxplot(x[,2],main=names(data)[3],ylab="EstimatedSalary")
+> #for all attribute
+> par (mfrow=c(1,1))
+> for(i in 1:1)
++   boxplot(x[,i],main=names(data)[i])
+> library(caret)
+> plot(x)
+> #scatter plot
+> library(caret)
+> featurePlot(x=x,y=y)
+> install.packages("ellipse")
+
+https://cran.rstudio.com/bin/windows/Rtools/
+Installing package into ‘C:/Users/gaurav/Documents/R/win-library/4.1’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.1/ellipse_0.4.2.zip'
+Content type 'application/zip' length 72044 bytes (70 KB)
+downloaded 70 KB
+
+package ‘ellipse’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\gaurav\AppData\Local\Temp\RtmpQHTlju\downloaded_packages
+> library(ellipse)
+
+Attaching package: ‘ellipse’
+
+The following object is masked from ‘package:graphics’:
+
+    pairs
+
+> library(caret)
+> featurePlot(x=x,y=y,plot ="ellipse")
+NULL
+> #box plots
+> library(caret)
+> featurePlot(x=x,y=y,plot="box")
+NULL
+> #density plot
+> scales<-list(x=list(relation="free"),y=list(relation="free"))
+> scales<-list(x=list(relation="free"),y=list(relation="free"))
+> featurePlot(x=x,y=y,plot = "density",scales=scales)
+NULL
+> #barplot
+> counts<-table(data$Age)
+> barplot(counts)
+> barplot(counts,horiz=TRUE)
+> barplot(counts,
++         main="Barplot",xlab="open",legend=rownames(counts),col=c("red","yellow","green"))
+> #boxplot
+> bwplot(~Age,data=data,main="boxplots")
+> library("caret")
+> #High
+> bwplot(~Age|EstimatedSalary,data=data,main="boxplots")
+> #hisogram
+> install.packages("lattice")
+Error in install.packages : Updating loaded packages
+
+Restarting R session...
+
+> install.packages("lattice")
+WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version of Rtools before proceeding:
+
+https://cran.rstudio.com/bin/windows/Rtools/
+Installing package into ‘C:/Users/gaurav/Documents/R/win-library/4.1’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.1/lattice_0.20-44.zip'
+Content type 'application/zip' length 1182219 bytes (1.1 MB)
+downloaded 1.1 MB
+
+package ‘lattice’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\gaurav\AppData\Local\Temp\RtmpgXsZzu\downloaded_packages
+> library(lattice)
+> histogram(~Age,data = data,main="histogram")
+> histogram(~EstimatedSalary,data = data,main="histogram")
+> #scatter
+> xyplot(Age~EstimatedSalary,data=data,main="Scatterplot")
+> #barchart
+> barchart(~Age,data=data,main="Barchart")
+> barchart(~EstimatedSalary,data=data,main="Barchart")
+> #densityplot
+> densityplot(~Age,data=data)
+> densityplot(~EstimatedSalary,data=data)
+> #piechart
+> install.packages("plotrix")
+WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version of Rtools before proceeding:
+
+https://cran.rstudio.com/bin/windows/Rtools/
+Installing package into ‘C:/Users/gaurav/Documents/R/win-library/4.1’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.1/plotrix_3.8-1.zip'
+Content type 'application/zip' length 1138090 bytes (1.1 MB)
+downloaded 1.1 MB
+
+package ‘plotrix’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\gaurav\AppData\Local\Temp\RtmpgXsZzu\downloaded_packages
+> library(plotrix)
+> slices<-c("Age")
+> lbls<-c("EstimatedSalary")
+> pie(slices,labels=lbls,main="Piecharts")
+Error in pie(slices, labels = lbls, main = "Piecharts") : 
+  'x' values must be positive.
+> #ggplot
+> library(ggplot2)
+> library(grid)
+> library(gridExtra)
+> (plot1<-ggplot(data=data,mapping=aes(x=Age,y=EstimatedSalary))+geom_boxplot())
+Warning message:
+Continuous x aesthetic -- did you forget aes(group=...)? 
+> ggplot(data=data,mapping=aes(x=Age,y=CustomerID))+geom_boxplot(notch = TRUE,outlier.colour = "green",outlier.size = 3)
+> ggplot(data=data,mapping=aes(x=Age,y=EstimatedSalary))+geom_boxplot(notch = TRUE,outlier.colour = "green",outlier.size = 3)
+> #modify
+> ggplot(data=data,mapping=aes(x=EstimatedSalary,y=Age,colour=EstimatedSalary))+geom_point()+facet_grid(~Age)
